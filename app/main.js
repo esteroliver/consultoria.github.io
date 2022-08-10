@@ -18,7 +18,8 @@ var correntista = /** @class */ (function () {
     };
     correntista.prototype.obterDados = function () {
         this.mensagem = "O nome espec\u00EDfico \u00E9: ".concat(this.nome, ".<br>\n        O cpf espec\u00EDfico \u00E9: ").concat(this.cpf, ".<br>\n        A data de nascimento espec\u00EDfica \u00E9: ").concat(this.dataNasc, ".<br>\n        O telefone espec\u00EDfico \u00E9: ").concat(this.telefone);
-        console.log(this.mensagem);
+        let msg = this.mensagem
+        document.getElementsByClassName('msg').innerHTML = `${msg}`;
     };
     return correntista;
 }());

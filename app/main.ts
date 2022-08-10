@@ -23,7 +23,6 @@ export class correntista{
         O cpf específico é: ${this.cpf}.<br>
         A data de nascimento específica é: ${this.dataNasc}.<br>
         O telefone específico é: ${this.telefone}`
-        console.log(this.mensagem)
     }
 
 }
