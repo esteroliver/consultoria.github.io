@@ -1,4 +1,4 @@
-export class correntista {
+export class correntista{
     nome: string
     cpf: any
     dataNasc: string
@@ -23,6 +23,7 @@ export class correntista {
         O cpf específico é: ${this.cpf}.<br>
         A data de nascimento específica é: ${this.dataNasc}.<br>
         O telefone específico é: ${this.telefone}`
+        console.log(this.mensagem)
     }
 
 }
@@ -75,3 +76,5 @@ export class conta{
         }
     }
 }
+let pessoa: correntista = new correntista ('',0,'',0)
+let dados: conta = new conta (0,0, pessoa)

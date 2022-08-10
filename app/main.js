@@ -1,4 +1,5 @@
 "use strict";
+var exports = {}
 exports.__esModule = true;
 exports.conta = exports.correntista = void 0;
 var correntista = /** @class */ (function () {
@@ -7,6 +8,7 @@ var correntista = /** @class */ (function () {
         this.cpf = c;
         this.dataNasc = d;
         this.telefone = t;
+        this.mensagem = '';
     }
     correntista.prototype.alterarDados = function (name, cp, data, fone) {
         this.nome = name;
@@ -15,7 +17,8 @@ var correntista = /** @class */ (function () {
         this.telefone = fone;
     };
     correntista.prototype.obterDados = function () {
-        console.log("O nome espec\u00EDfico \u00E9: ".concat(this.nome, ".<br>\n        O cpf espec\u00EDfico \u00E9: ").concat(this.cpf, ".<br>\n        A data de nascimento espec\u00EDfica \u00E9: ").concat(this.dataNasc, ".<br>\n        O telefone espec\u00EDfico \u00E9: ").concat(this.telefone));
+        this.mensagem = "O nome espec\u00EDfico \u00E9: ".concat(this.nome, ".<br>\n        O cpf espec\u00EDfico \u00E9: ").concat(this.cpf, ".<br>\n        A data de nascimento espec\u00EDfica \u00E9: ").concat(this.dataNasc, ".<br>\n        O telefone espec\u00EDfico \u00E9: ").concat(this.telefone);
+        console.log(this.mensagem);
     };
     return correntista;
 }());
@@ -67,3 +70,5 @@ var conta = /** @class */ (function () {
     return conta;
 }());
 exports.conta = conta;
+var pessoa = new correntista('', 0, '', 0);
+var dados = new conta(0, 0, pessoa);

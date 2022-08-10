@@ -14,22 +14,22 @@
     <main>
         <h2>Alterar dados</h2>
         <label for="nome">Nome:</label><br>
-        <input type="text" id="nome" #v1><br>
+        <input type="text" id="nome"><br>
 
         <label for="cpf">CPF:</label><br>
-        <input type="number" id="cpf" #v2><br>
+        <input type="number" id="cpf"><br>
 
         <label for="data">Data de nascimento:</label><br>
-        <input type="text" id="data" #v3><br>
+        <input type="text" id="data"><br>
 
         <label for="telefone">Telefone:</label><br>
-        <input type="number" id="telefone" #v4><br>
+        <input type="number" id="telefone"><br>
 
-        <input type="button" (click)="dados.alterarDados(v1,+v2,v3,+v4)" value="Alterar">
+        <input type="button" onclick="pessoa.alterarDados(nome.valuem, +cpf.value, data.value, +telefone.value)" value="Alterar">
 
         <h2>Exibir dados</h2>
-        <input type="button" (click)="dados.obterDados()" value="Obter">
-        <p>{{mensagem}}</p>
+        <p class="msg"></p>
+        <input type="button" onclick="pessoa.obterDados()" value="Obter">
     </main>
     <footer>
         <p id="footer">Copyright &copy;, LuLuBank 2022</p>
