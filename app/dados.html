@@ -25,14 +25,15 @@
         <label for="telefone">Telefone:</label><br>
         <input type="number" id="telefone"><br>
 
-        <input type="button" onclick="pessoa.alterarDados(nome.valuem, +cpf.value, data.value, +telefone.value)" value="Alterar">
+        <input type="button" onclick="pessoa.alterarDados(nome.value, +cpf.value, data.value, +telefone.value)" value="Alterar">
 
         <h2>Exibir dados</h2>
-        <p class="msg"></p>
+        <p id="msg"></p>
         <input type="button" onclick="pessoa.obterDados()" value="Exibir">
     </main>
     <footer>
         <p id="footer">Copyright &copy;, LuLuBank 2022</p>
+        <a href="index.html">Página inicial</a>
     </footer>
 </body>
 </html>

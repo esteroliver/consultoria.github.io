@@ -17,9 +17,8 @@ var correntista = /** @class */ (function () {
         this.telefone = fone;
     };
     correntista.prototype.obterDados = function () {
-        this.mensagem = "O nome espec\u00EDfico \u00E9: ".concat(this.nome, ".<br>\n        O cpf espec\u00EDfico \u00E9: ").concat(this.cpf, ".<br>\n        A data de nascimento espec\u00EDfica \u00E9: ").concat(this.dataNasc, ".<br>\n        O telefone espec\u00EDfico \u00E9: ").concat(this.telefone);
-        let msg = this.mensagem
-        document.getElementsByClassName('msg').innerHTML = `${msg}`;
+        this.mensagem = "Nome: ".concat(this.nome, ".<br>\n        CPF: ").concat(this.cpf, ".<br>\n        Data de Nascimento: ").concat(this.dataNasc, ".<br>\n        Telefone: ").concat(this.telefone);
+        document.getElementById('msg').innerHTML = this.mensagem;
     };
     return correntista;
 }());
@@ -31,7 +30,7 @@ var conta = /** @class */ (function () {
         this.saldo = saldo;
     }
     conta.prototype.obterSaldo = function () {
-        return console.log(this.saldo);
+        return document.getElementById("saldo").innerHTML = this.saldo;
     };
     conta.prototype.temSaldo = function () {
         if (this.saldo <= 0) {
@@ -45,11 +44,11 @@ var conta = /** @class */ (function () {
         }
     };
     conta.prototype.depositar = function (quantia) {
-        this.saldo += quantia;
-        if (this.saldo > 0) {
+        if (this.saldo >= 0) {
+            this.saldo += quantia
             return true;
         }
-        else if (this.saldo <= 0) {
+        else if (this.saldo < 0) {
             return false;
         }
         else {
@@ -57,11 +56,11 @@ var conta = /** @class */ (function () {
         }
     };
     conta.prototype.debitar = function (quantia) {
-        if (this.saldo >= quantia) {
-            this.saldo - quantia;
+        if (this.saldo >= 0) {
+            this.saldo -= quantia;
             return true;
         }
-        else if (this.saldo < quantia) {
+        else if (this.saldo < 0) {
             return false;
         }
         else {

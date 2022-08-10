@@ -19,10 +19,11 @@ export class correntista{
         this.telefone = fone
     }
     obterDados(){
-        this.mensagem = `O nome específico é: ${this.nome}.<br>
-        O cpf específico é: ${this.cpf}.<br>
-        A data de nascimento específica é: ${this.dataNasc}.<br>
-        O telefone específico é: ${this.telefone}`
+        this.mensagem = `Nome: ${this.nome}.<br>
+        CPF: ${this.cpf}.<br>
+        Data de Nascimento: ${this.dataNasc}.<br>
+        Telefone: ${this.telefone}`
+        document.write(`${this.mensagem}`)
     }
 
 }
