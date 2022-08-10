@@ -1,19 +1,69 @@
 "use strict";
-exports, "__esModule", { value: true }
-//QUESTÃO 01
-const correntista_1 = require("./correntista");
-let pessoa = new correntista_1.correntista("Ester", 11518913474, "17/09/2004", 96991035);
-pessoa.obterDados();
-pessoa.modificarNome("Maria");
-pessoa.modificarCPF(10020030090);
-pessoa.modificarData("20/08/2000");
-pessoa.modificarTelefone(88888888);
-pessoa.obterDados();
-//QUESTÃO 02
-const conta_1 = require("./conta");
-let pessoa2 = new correntista_1.correntista("João", 20030040070, "24/09/2003", 90903030);
-let entidade = new conta_1.conta(22524667, 100, pessoa2);
-entidade.obterSaldo();
-entidade.temSaldo();
-entidade.depositar(20);
-entidade.debitar(20);
+exports.__esModule = true;
+exports.conta = exports.correntista = void 0;
+var correntista = /** @class */ (function () {
+    function correntista(n, c, d, t) {
+        this.nome = n;
+        this.cpf = c;
+        this.dataNasc = d;
+        this.telefone = t;
+    }
+    correntista.prototype.alterarDados = function (name, cp, data, fone) {
+        this.nome = name;
+        this.cpf = cp;
+        this.dataNasc = data;
+        this.telefone = fone;
+    };
+    correntista.prototype.obterDados = function () {
+        console.log("O nome espec\u00EDfico \u00E9: ".concat(this.nome, ".<br>\n        O cpf espec\u00EDfico \u00E9: ").concat(this.cpf, ".<br>\n        A data de nascimento espec\u00EDfica \u00E9: ").concat(this.dataNasc, ".<br>\n        O telefone espec\u00EDfico \u00E9: ").concat(this.telefone));
+    };
+    return correntista;
+}());
+exports.correntista = correntista;
+var conta = /** @class */ (function () {
+    function conta(conta, saldo, entidade) {
+        this.correntista = entidade;
+        this.num_conta = conta;
+        this.saldo = saldo;
+    }
+    conta.prototype.obterSaldo = function () {
+        return console.log(this.saldo);
+    };
+    conta.prototype.temSaldo = function () {
+        if (this.saldo <= 0) {
+            return false;
+        }
+        else if (this.saldo > 0) {
+            return true;
+        }
+        else {
+            return "erro!";
+        }
+    };
+    conta.prototype.depositar = function (quantia) {
+        this.saldo += quantia;
+        if (this.saldo > 0) {
+            return true;
+        }
+        else if (this.saldo <= 0) {
+            return false;
+        }
+        else {
+            return "Erro!";
+        }
+    };
+    conta.prototype.debitar = function (quantia) {
+        if (this.saldo >= quantia) {
+            this.saldo - quantia;
+            return true;
+        }
+        else if (this.saldo < quantia) {
+            return false;
+        }
+        else {
+            return "Erro!";
+        }
+    };
+    return conta;
+}());
+exports.conta = conta;

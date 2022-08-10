@@ -1,22 +1,77 @@
-//QUESTÃO 01
-import { correntista } from "./correntista";
-let pessoa: correntista = new correntista ("Ester", 11518913474, "17/09/2004", 96991035)
+export class correntista {
+    nome: string
+    cpf: any
+    dataNasc: string
+    telefone: any
+    mensagem: string
 
-pessoa.obterDados()
+    constructor(n:string, c:number, d:string, t:number){
+        this.nome = n
+        this.cpf = c 
+        this.dataNasc = d
+        this.telefone = t
+        this.mensagem = ''
+    }
+    alterarDados(name: string,cp: number,data: string,fone: number){
+        this.nome = name
+        this.cpf = cp
+        this.dataNasc = data
+        this.telefone = fone
+    }
+    obterDados(){
+        this.mensagem = `O nome específico é: ${this.nome}.<br>
+        O cpf específico é: ${this.cpf}.<br>
+        A data de nascimento específica é: ${this.dataNasc}.<br>
+        O telefone específico é: ${this.telefone}`
+    }
 
-pessoa.modificarNome("Maria")
-pessoa.modificarCPF(10020030090)
-pessoa.modificarData("20/08/2000")
-pessoa.modificarTelefone(88888888)
-
-pessoa.obterDados()
-
-//QUESTÃO 02
-import { conta } from "./conta";
-let pessoa2: correntista = new correntista ("João", 20030040070, "24/09/2003", 90903030)
-let entidade: conta = new conta(22524667, 100, pessoa2)
-
-entidade.obterSaldo()
-entidade.temSaldo()
-entidade.depositar(20)
-entidade.debitar(20)
+}
+export class conta{
+    num_conta: number
+    saldo: number
+    correntista: correntista
+     
+    constructor(conta: number, saldo:number, entidade: correntista){
+        this.correntista = entidade
+        this.num_conta = conta
+        this.saldo = saldo
+    }
+    obterSaldo(){
+        return console.log(this.saldo)
+    }
+    temSaldo(){
+        if (this.saldo <= 0){
+            return false
+        }
+        else if (this.saldo > 0){
+            return true
+        }
+        else{
+            return "erro!"
+        }
+    }
+    depositar(quantia: number){
+        this.saldo += quantia
+        if (this.saldo > 0 ){
+            return true
+        }
+        else if (this.saldo <=0 ){
+            return false
+        }
+        else{
+            return "Erro!"
+        }
+    }
+    debitar(quantia: number){
+        if (this.saldo >= quantia){
+            this.saldo - quantia
+            return true
+        }
+        else if (this.saldo < quantia){
+            return false
+        }
+        else{
+            return "Erro!"
+        }
+    }
+}
