@@ -45,7 +45,7 @@ var conta = /** @class */ (function () {
     };
     conta.prototype.depositar = function (quantia) {
         if (this.saldo >= 0) {
-            this.saldo += quantia
+            this.saldo += +quantia;
             return true;
         }
         else if (this.saldo < 0) {
